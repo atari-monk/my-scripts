@@ -1,7 +1,7 @@
 import os
 
 IGNORE = {
-    "folders": {".git", "node_modules", "dist", "__pycache__", "venv", ".venv", "env", "scripts.egg-info"},
+    "folders": {".git", "node_modules", "dist", "__pycache__", "venv", ".venv", "env", "my_scripts.egg-info", ".pytest_cache"},
     "files": {"package-lock.json"}
 }
 
@@ -21,26 +21,25 @@ class DirectoryTreeGenerator:
             return f"{prefix}└── [Permission denied]\n"
             
         output = []
+        filtered_items = [item for item in items if not self._should_ignore(os.path.join(path, item), item)]
         
-        for i, item in enumerate(items):
+        for i, item in enumerate(filtered_items):
             full_path = os.path.join(path, item)
-            
-            if self._should_ignore(full_path, item):
-                continue
-                
-            is_last = i == len(items) - 1
+            is_last = i == len(filtered_items) - 1
             line = prefix + ("└── " if is_last else "├── ") + item
             output.append(line)
             
             if os.path.isdir(full_path):
                 new_prefix = prefix + ("    " if is_last else "│   ")
-                output.append(self._generate_structure(full_path, new_prefix))
+                subtree = self._generate_structure(full_path, new_prefix)
+                if subtree.strip():  # Only append if there's content
+                    output.append(subtree)
         
         return "\n".join(output)
     
     def _should_ignore(self, full_path: str, item: str) -> bool:
-        if item in IGNORE["folders"] and os.path.isdir(full_path):
+        if os.path.isdir(full_path) and item in IGNORE["folders"]:
             return True
-        if item in IGNORE["files"] and os.path.isfile(full_path):
+        if os.path.isfile(full_path) and item in IGNORE["files"]:
             return True
         return False

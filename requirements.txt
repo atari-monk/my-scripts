@@ -1,0 +1,9 @@
+# setup
+setuptools
+
+# tests
+pytest
+pytest-cov
+
+# clipboard
+pyperclip

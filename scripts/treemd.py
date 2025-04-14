@@ -24,8 +24,8 @@ def save_to_file(content: str, directory: str, filename: str) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("path", help="Directory path to generate structure for")
-    parser.add_argument("--save", action="store_true", help="Save to markdown file")
-    parser.add_argument("--output-dir", default=DEFAULT_DOCS_DIR)
+    parser.add_argument("-s", "--save", action="store_true", help="Save to markdown file")
+    parser.add_argument("-o", "--output-dir", default=DEFAULT_DOCS_DIR, help="Output directory (default: docs)")
     args = parser.parse_args()
 
     if not validate_directory(args.path):

@@ -1,4 +1,7 @@
 ## python
 
 __pycache__
-scripts.egg-info
+my_scripts.egg-info
+venv
+.coverage
+.pytest_cache
