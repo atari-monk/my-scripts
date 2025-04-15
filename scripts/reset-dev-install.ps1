@@ -1,5 +1,5 @@
 $code_path = "C:\atari-monk\code"
-$repo_name = "scripts"
+$repo_name = "my-scripts"
 $egg_info_path = "$code_path\$repo_name\$repo_name.egg-info"
 
 pip uninstall $repo_name -y
