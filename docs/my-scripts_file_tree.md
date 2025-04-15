@@ -15,6 +15,8 @@
 │   ├── index.md
 │   ├── my-scripts_file_tree.md
 │   ├── script_index.md
+│   ├── tasks
+│   │   └── 001_my-scripts.md
 │   ├── testing_setup.md
 │   └── virtual_environments.md
 ├── requirements.txt
@@ -24,15 +26,16 @@
 │   ├── reset-dev-install.ps1
 │   └── treemd.py
 ├── setup.py
-└── tests
-    ├── __init__.py
-    ├── core
-    │   ├── __init__.py
-    │   ├── test_directory_tree_generator.py
-    │   ├── test_documentation_generator.py
-    │   └── test_tree_md_generator.py
-    └── scripts
-        ├── __init__.py
-        ├── test_indexmd.py
-        └── test_treemd.py
+├── tests
+│   ├── __init__.py
+│   ├── core
+│   │   ├── __init__.py
+│   │   ├── test_directory_tree_generator.py
+│   │   ├── test_documentation_generator.py
+│   │   └── test_tree_md_generator.py
+│   └── scripts
+│       ├── __init__.py
+│       ├── test_indexmd.py
+│       └── test_treemd.py
+└── tmp.md
 ```

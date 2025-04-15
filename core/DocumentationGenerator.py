@@ -67,18 +67,17 @@ class DocumentationGenerator:
 
     def generate_index_content(self, base_path: Path) -> List[str]:
         content = []
-
         subdirs, md_files = self.scan_directory(base_path)
 
-        if not subdirs and md_files:
+        if md_files:
             content.append("\n## Documentation Index")
             for file in sorted(md_files):
                 name = self.clean_name(file.stem)
                 content.append(f"- [{name}]({file.name})")
-        else:
-            for root in sorted(subdirs):
-                section_content = self.generate_section_content(base_path, root)
-                content.extend(section_content)
+
+        for root in sorted(subdirs):
+            section_content = self.generate_section_content(base_path, root)
+            content.extend(section_content)
 
         return content
 

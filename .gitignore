@@ -1,7 +1,14 @@
 ## python
 
 __pycache__
-my_scripts.egg-info
 venv
-.coverage
+my_scripts.egg-info
+
+## python tests
+
 .pytest_cache
+.coverage
+
+## mine
+
+tmp.md
