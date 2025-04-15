@@ -1,5 +1,15 @@
 # Testing Setup Guide
 
+## Table of Contents
+
+- [Testing Setup Guide](#testing-setup-guide)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Writing Tests](#writing-tests)
+  - [Running Tests](#running-tests)
+  - [Test Coverage](#test-coverage)
+
+
 ## Prerequisites
 
 - Python 3.6+ installed
