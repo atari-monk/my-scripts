@@ -7,8 +7,10 @@
 ├── README.md.txt
 ├── __init__.py
 ├── core
-│   ├── __init__.py
-│   └── directory_tree.py
+│   ├── DirectoryTreeGenerator.py
+│   ├── DocumentationGenerator.py
+│   ├── TreeMDGenerator.py
+│   └── __init__.py
 ├── docs
 │   ├── index.md
 │   ├── my-scripts_file_tree.md
@@ -17,13 +19,20 @@
 │   └── virtual_environments.md
 ├── requirements.txt
 ├── scripts
+│   ├── __init__.py
+│   ├── indexmd.py
 │   ├── reset-dev-install.ps1
-│   ├── treemd.py
-│   └── treemd2.py
+│   └── treemd.py
 ├── setup.py
 └── tests
     ├── __init__.py
-    ├── test_directory_tree_generator.py
-    ├── test_treemd.py
-    └── test_treemd2.py
+    ├── core
+    │   ├── __init__.py
+    │   ├── test_directory_tree_generator.py
+    │   ├── test_documentation_generator.py
+    │   └── test_tree_md_generator.py
+    └── scripts
+        ├── __init__.py
+        ├── test_indexmd.py
+        └── test_treemd.py
 ```
