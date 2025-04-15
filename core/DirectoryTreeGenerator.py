@@ -32,7 +32,7 @@ class DirectoryTreeGenerator:
             if os.path.isdir(full_path):
                 new_prefix = prefix + ("    " if is_last else "│   ")
                 subtree = self._generate_structure(full_path, new_prefix)
-                if subtree.strip():  # Only append if there's content
+                if subtree.strip():
                     output.append(subtree)
         
         return "\n".join(output)
