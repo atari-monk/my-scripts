@@ -14,7 +14,7 @@ Virtual environments help isolate project dependencies, preventing conflicts bet
    - [4. Deactivate the Environment](#4-deactivate-the-environment)
    - [5. Restore the Environment Later](#5-restore-the-environment-later)
 
-2. **[Best Practices](#💡-best-practices)**
+2. **[Best Practices](#-best-practices)**
 
 3. **[VS Code Config](#vs-code-config)**
 
