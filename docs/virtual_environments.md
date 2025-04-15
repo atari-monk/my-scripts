@@ -8,11 +8,11 @@ Virtual environments help isolate project dependencies, preventing conflicts bet
 
 1. **[How to use it](#how-to-use-it)**
 
-   - [1. Create a Virtual Environment](#1.-create-a-virtual-environment)
-   - [2. Activate the Virtual Environment](#2.-activate-the-virtual-environment)
-   - [3. Install Dependencies](#3.-install-dependencies)
-   - [4. Deactivate the Environment](#4.-deactivate-the-environment)
-   - [5. Restore the Environment Later](#5.-restore-the-environment-later)
+   - [1. Create a Virtual Environment](#1-create-a-virtual-environment)
+   - [2. Activate the Virtual Environment](#2-activate-the-virtual-environment)
+   - [3. Install Dependencies](#3-install-dependencies)
+   - [4. Deactivate the Environment](#4-deactivate-the-environment)
+   - [5. Restore the Environment Later](#5-restore-the-environment-later)
 
 2. **[Best Practices](#💡-best-practices)**
 
@@ -24,7 +24,7 @@ Virtual environments help isolate project dependencies, preventing conflicts bet
    - [If You Missed the Prompt](#if-you-missed-the-prompt)
    - [Why This Matters](#why-this-matters)
 
-4. **[Add dependency to requirements.txt](#add-dependency-to-requirements.txt)**
+4. **[Add dependency to requirements.txt](#add-dependency-to-requirementstxt)**
 
 ---
 
