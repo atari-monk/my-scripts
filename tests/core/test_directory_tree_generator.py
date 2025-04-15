@@ -1,7 +1,7 @@
 import os
 import tempfile
 import unittest
-from core.directory_tree import IGNORE, DirectoryTreeGenerator
+from core.DirectoryTreeGenerator import IGNORE, DirectoryTreeGenerator
 
 class TestDirectoryTreeGenerator(unittest.TestCase):
     def setUp(self):
