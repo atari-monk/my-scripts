@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 from pathlib import Path
-from core.markdown_indexer.MarkdownIndexer import MarkdownIndexer
+from core.markdown_index.MarkdownIndex import MarkdownIndex
 
 def main():
     parser = argparse.ArgumentParser(
@@ -25,7 +25,7 @@ def main():
 
 def process_file(md_file: Path):
     try:
-        indexer = MarkdownIndexer(str(md_file))
+        indexer = MarkdownIndex(str(md_file))
         if indexer.insert_index():
             print(f"Added table of contents to: {md_file}")
         else:

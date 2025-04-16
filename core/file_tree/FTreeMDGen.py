@@ -3,13 +3,13 @@ import logging
 from pathlib import Path
 from typing import Optional
 import pyperclip
-from core.DirectoryTreeGenerator import DirectoryTreeGenerator
+from core.file_tree.FileTreeGenerator import FileTreeGenerator
 
 DEFAULT_ENCODING = "utf-8"
 DEFAULT_DOCS_DIR = "docs"
 OUTPUT_FILENAME_TEMPLATE = "{repo_name}_file_tree.md"
 
-class TreeMDGenerator:
+class FTreeMDGen:
     def __init__(self, log_level=logging.INFO):
         self.logger = logging.getLogger(__name__)
         self.logger.setLevel(log_level)
@@ -32,7 +32,7 @@ class TreeMDGenerator:
             return None
 
         try:
-            generator = DirectoryTreeGenerator(path)
+            generator = FileTreeGenerator(path)
             md_content = generator.generate()
 
             try:

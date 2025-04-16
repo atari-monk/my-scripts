@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import logging
-from core.TreeMDGenerator import DEFAULT_DOCS_DIR, TreeMDGenerator
+from core.file_tree.FTreeMDGen import DEFAULT_DOCS_DIR, FTreeMDGen
 
 def main():
     logging.basicConfig(level=logging.INFO)
@@ -12,7 +12,7 @@ def main():
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose logging")
     args = parser.parse_args()
 
-    generator = TreeMDGenerator(log_level=logging.DEBUG if args.verbose else logging.INFO)
+    generator = FTreeMDGen(log_level=logging.DEBUG if args.verbose else logging.INFO)
     generator.generate_tree(args.path, args.save, args.output_dir)
 
 if __name__ == "__main__":

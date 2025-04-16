@@ -1,10 +1,10 @@
 import unittest
 import os
 import tempfile
-from core.markdown_indexer.Heading import Heading
-from core.markdown_indexer.MarkdownIndexer import MarkdownIndexer
+from core.markdown_index.Heading import Heading
+from core.markdown_index.MarkdownIndex import MarkdownIndex
 
-class TestMarkdownIndexer(unittest.TestCase):
+class TestMarkdownIndex(unittest.TestCase):
     def setUp(self):
         self.test_file = tempfile.NamedTemporaryFile(delete=False, mode='w+', suffix='.md')
         self.test_content = """# Main Title
@@ -27,7 +27,7 @@ Final content
         os.unlink(self.test_file.name)
         
     def test_heading_detection(self):
-      indexer = MarkdownIndexer(self.test_file.name)
+      indexer = MarkdownIndex(self.test_file.name)
       headings = indexer.extract_headings()
       self.assertEqual(len(headings), 4)
       self.assertEqual(headings[0].text, 'Main Title')
@@ -42,14 +42,14 @@ Final content
           Heading(level=1, text="", line_number=0)
 
     def test_index_generation(self):
-        indexer = MarkdownIndexer(self.test_file.name)
+        indexer = MarkdownIndex(self.test_file.name)
         headings = indexer.extract_headings()
         index = indexer.generate_index(headings)
         self.assertIn('- [Main Title](#main-title)', index)
         self.assertIn('  - [Section 1](#section-1)', index)
         
     def test_index_insertion(self):
-        indexer = MarkdownIndexer(self.test_file.name)
+        indexer = MarkdownIndex(self.test_file.name)
         result = indexer.insert_index()
         with open(self.test_file.name, 'r') as f:
             content = f.read()
@@ -57,7 +57,7 @@ Final content
         self.assertIn('- [Section 1](#section-1)', content)
         
     def test_no_duplicate_index(self):
-        indexer = MarkdownIndexer(self.test_file.name)
+        indexer = MarkdownIndex(self.test_file.name)
         first_run = indexer.insert_index()
         second_run = indexer.insert_index()
         self.assertEqual(first_run, second_run)

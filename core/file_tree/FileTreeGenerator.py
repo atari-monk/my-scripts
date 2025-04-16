@@ -5,7 +5,7 @@ IGNORE = {
     "files": {"package-lock.json"}
 }
 
-class DirectoryTreeGenerator:
+class FileTreeGenerator:
     def __init__(self, root_path: str):
         self.root_path = os.path.normpath(root_path)
         self.repo_name = os.path.basename(self.root_path)

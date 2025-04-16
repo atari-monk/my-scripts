@@ -7,8 +7,12 @@ setup(
     install_requires=[],
     entry_points={
         "console_scripts": [
-            "mdindex=core.markdown_indexer.cli:main",
-            "tasklog=core.task_log.cli:main"
+            "info=core.info:main",
+            "dsex=core.docs_index.cli:main",
+            "ftree=core.file_tree.cli:main",
+            "mdex=core.markdown_index.cli:main",
+            "taog=core.task_log.cli:main",
+            "bome=core.boot_time:main",
         ],
     },
     python_requires=">=3.7",

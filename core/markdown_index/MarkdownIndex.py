@@ -1,8 +1,8 @@
 import re
 from typing import List
-from core.markdown_indexer.Heading import Heading
+from core.markdown_index.Heading import Heading
 
-class MarkdownIndexer:
+class MarkdownIndex:
     def __init__(self, file_path: str):
         self.file_path = file_path
         self._headings: List[Heading] = []

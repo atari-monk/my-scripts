@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import List, Tuple, Union
 from logging import Logger
 
-class DocumentationGenerator:
+class DocsIndexGen:
     def __init__(self, repo_path: Union[str, Path], logger: Logger):
         self.repo_path = Path(repo_path).resolve()
         self.validate_path()

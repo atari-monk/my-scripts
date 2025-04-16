@@ -4,7 +4,7 @@ import sys
 import logging
 import argparse
 from typing import List, Optional
-from core.DocumentationGenerator import DocumentationGenerator
+from core.docs_index.DocsIndexGen import DocsIndexGen
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
@@ -33,7 +33,7 @@ def main(args: Optional[List[str]] = None) -> int:
         if parsed_args.verbose:
             logger.setLevel(logging.DEBUG)
             
-        generator = DocumentationGenerator(parsed_args.path, logger)
+        generator = DocsIndexGen(parsed_args.path, logger)
         generator.generate()
         return 0
         

@@ -1,9 +1,9 @@
 import os
 import tempfile
 import unittest
-from core.DirectoryTreeGenerator import IGNORE, DirectoryTreeGenerator
+from core.file_tree.FileTreeGenerator import IGNORE, FileTreeGenerator
 
-class TestDirectoryTreeGenerator(unittest.TestCase):
+class TestFileTreeGenerator(unittest.TestCase):
     def setUp(self):
         self.test_dir = tempfile.mkdtemp()
         self.repo_name = os.path.basename(self.test_dir)
@@ -32,7 +32,7 @@ class TestDirectoryTreeGenerator(unittest.TestCase):
         }
         self._create_test_files(structure)
         
-        generator = DirectoryTreeGenerator(self.test_dir)
+        generator = FileTreeGenerator(self.test_dir)
         result = generator.generate()
         
         self.assertIn("included.txt", result)
@@ -47,7 +47,7 @@ class TestDirectoryTreeGenerator(unittest.TestCase):
         }
         self._create_test_files(structure)
         
-        generator = DirectoryTreeGenerator(self.test_dir)
+        generator = FileTreeGenerator(self.test_dir)
         result = generator.generate()
         
         self.assertIn("included_dir", result)
@@ -56,14 +56,14 @@ class TestDirectoryTreeGenerator(unittest.TestCase):
         self.assertNotIn("node_modules", result)
 
     def test_should_ignore_folder(self):
-        generator = DirectoryTreeGenerator(self.test_dir)
+        generator = FileTreeGenerator(self.test_dir)
         for folder in IGNORE["folders"]:
             path = os.path.join(self.test_dir, folder)
             os.makedirs(path, exist_ok=True)
             self.assertTrue(generator._should_ignore(path, folder))
 
     def test_should_ignore_file(self):
-        generator = DirectoryTreeGenerator(self.test_dir)
+        generator = FileTreeGenerator(self.test_dir)
         for file in IGNORE["files"]:
             path = os.path.join(self.test_dir, file)
             with open(path, 'w') as f:

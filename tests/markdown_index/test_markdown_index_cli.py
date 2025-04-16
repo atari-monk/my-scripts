@@ -1,9 +1,9 @@
 import logging
 from unittest.mock import Mock, patch
-from scripts.indexmd import main
+from core.markdown_index.cli import main
 
-@patch('scripts.indexmd.DocumentationGenerator')
-@patch('scripts.indexmd.argparse.ArgumentParser')
+@patch('core.markdown_index.MarkdownIndex')
+@patch('core.markdown_index.cli.argparse.ArgumentParser')
 def test_main_default_args(mock_parser, mock_generator):
     mock_args = Mock()
     mock_args.path = "/test/path"
@@ -15,12 +15,12 @@ def test_main_default_args(mock_parser, mock_generator):
 
     result = main()
 
-    mock_generator.assert_called_once_with("/test/path", logging.getLogger('scripts.indexmd'))
+    mock_generator.assert_called_once_with("/test/path", logging.getLogger('markdown_index.cli'))
     mock_instance.generate.assert_called_once()
     assert result == 0
 
-@patch('scripts.indexmd.DocumentationGenerator')
-@patch('scripts.indexmd.argparse.ArgumentParser')
+@patch('core.markdown_index.MarkdownIndex')
+@patch('core.markdown_index.cli.argparse.ArgumentParser')
 def test_main_verbose_flag(mock_parser, mock_generator):
     mock_args = Mock()
     mock_args.path = "/test/path"
@@ -32,13 +32,13 @@ def test_main_verbose_flag(mock_parser, mock_generator):
 
     result = main()
 
-    mock_generator.assert_called_once_with("/test/path", logging.getLogger('scripts.indexmd'))
+    mock_generator.assert_called_once_with("/test/path", logging.getLogger('markdown_index.cli'))
     mock_instance.generate.assert_called_once()
     assert result == 0
-    assert logging.getLogger('scripts.indexmd').level == logging.DEBUG
+    assert logging.getLogger('markdown_index.cli').level == logging.DEBUG
 
-@patch('scripts.indexmd.DocumentationGenerator')
-@patch('scripts.indexmd.argparse.ArgumentParser')
+@patch('core.markdown_index.MarkdownIndex')
+@patch('core.markdown_index.cli.argparse.ArgumentParser')
 def test_main_generator_exception(mock_parser, mock_generator):
     mock_args = Mock()
     mock_args.path = "/broken/path"

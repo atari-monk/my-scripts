@@ -2,16 +2,16 @@ import os
 from unittest.mock import patch
 import pytest
 import pyperclip
-from core.TreeMDGenerator import TreeMDGenerator
+from core.file_tree.FTreeMDGen import FTreeMDGen
 
-class TestTreeMDGenerator:
+class TestFTreeMDGen:
     @pytest.fixture
     def generator(self):
-        return TreeMDGenerator()
+        return FTreeMDGen()
 
     @pytest.fixture
     def mock_directory_tree_generator(self):
-        with patch('core.TreeMDGenerator.DirectoryTreeGenerator') as mock:
+        with patch('core.file_tree.FileTreeGenerator') as mock:
             mock_instance = mock.return_value
             mock_instance.generate.return_value = "mock_md_content"
             mock_instance.repo_name = "mock_repo"
@@ -62,6 +62,6 @@ class TestTreeMDGenerator:
             mock_directory_tree_generator.generate.assert_called_once()
 
     def test_generate_tree_exception_handling(self, generator, mock_path):
-        with patch('core.TreeMDGenerator.DirectoryTreeGenerator', side_effect=Exception("mock error")):
+        with patch('core.file_tree.FileTreeGenerator', side_effect=Exception("mock error")):
             with pytest.raises(Exception):
                 generator.generate_tree(mock_path)
