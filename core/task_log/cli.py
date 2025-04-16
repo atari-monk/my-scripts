@@ -19,6 +19,8 @@ def main():
         report_name = input("Enter report name: ")
         sys.argv.append(report_name)
         generate_report()
+    elif choice == 5:
+        return
     else:
         print("Invalid choice. Please try again.")
 
@@ -27,6 +29,7 @@ def show_menu():
     print("2. End active task")
     print("3. Update statistics")
     print("4. Generate report")
+    print("5. Exit")
     
     try:
         choice = int(input("Enter your choice (1-5): "))
