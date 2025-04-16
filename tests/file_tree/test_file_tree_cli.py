@@ -2,7 +2,7 @@ import logging
 from unittest.mock import Mock, patch
 from core.file_tree.cli import main
 
-@patch('core.file_tree.FTreeMDGen')
+@patch('core.file_tree.cli.FTreeMDGen')
 @patch('core.file_tree.cli.argparse.ArgumentParser')
 def test_main_default_args(mock_parser, mock_generator):
     mock_args = Mock()
@@ -20,7 +20,7 @@ def test_main_default_args(mock_parser, mock_generator):
     mock_generator.assert_called_once_with(log_level=logging.INFO)
     mock_gen_instance.generate_tree.assert_called_once_with("/test/path", False, "docs")
 
-@patch('core.file_tree.FTreeMDGen')
+@patch('core.file_tree.cli.FTreeMDGen')
 @patch('core.file_tree.cli.argparse.ArgumentParser')
 def test_main_verbose_flag(mock_parser, mock_generator):
     mock_args = Mock()
@@ -33,7 +33,7 @@ def test_main_verbose_flag(mock_parser, mock_generator):
     main()
     mock_generator.assert_called_once_with(log_level=logging.DEBUG)
 
-@patch('core.file_tree.FTreeMDGen')
+@patch('core.file_tree.cli.FTreeMDGen')
 @patch('core.file_tree.cli.argparse.ArgumentParser')
 def test_main_save_flag(mock_parser, mock_generator):
     mock_args = Mock()
@@ -46,7 +46,7 @@ def test_main_save_flag(mock_parser, mock_generator):
     main()
     mock_generator.return_value.generate_tree.assert_called_once()
 
-@patch('core.file_tree.FTreeMDGen')
+@patch('core.file_tree.cli.FTreeMDGen')
 @patch('core.file_tree.cli.argparse.ArgumentParser')
 def test_main_custom_output_dir(mock_parser, mock_generator):
     mock_args = Mock()
