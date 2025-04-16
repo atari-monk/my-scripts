@@ -8,6 +8,7 @@ setup(
     entry_points={
         "console_scripts": [
             "mdindex=core.markdown_indexer.cli:main",
+            "tasklog=core.task_log.cli:main"
         ],
     },
     python_requires=">=3.7",
